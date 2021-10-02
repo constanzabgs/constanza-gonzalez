@@ -1,0 +1,1 @@
+Aquí irán los códigos utilizados en R o en alguna aplicación para así poder llevar un mejor orden de ellos.

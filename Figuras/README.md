@@ -1,0 +1,1 @@
+Aquí se adjuntarán los gráficos, tablas, dibujos, entre otros, que se utilizarán para que el lector comprenda mejor la finalidad del informe.
