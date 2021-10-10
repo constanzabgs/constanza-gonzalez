@@ -6,4 +6,21 @@ output: html_document
 ---
 
 ## Pregunta 1:
-¿?
+
+¿cuáles fueron las causas con mayor tasa de mortalidad en los años estudiados?
+
+## Pregunta 2:
+
+¿a qué se podría deber el aumento o disminución de la muerte materna por causa obstétrica?
+
+## Pregunta 3:
+
+¿Habrá alguna coincidencia con la cantidad de muertes con la ausencia de educación sexual existente en Chile?
+
+## Pregunta 4:
+
+¿La defunción debido al aborto ha aumentado o disminuido con el paso de los años?
+
+## Pregunta 5:
+
+En el año 2012, ¿cual fue la causa con mayor tasa de defunción?
