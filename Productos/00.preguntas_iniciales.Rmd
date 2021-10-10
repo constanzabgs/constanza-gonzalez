@@ -1,0 +1,9 @@
+---
+title: "Preguntas Iniciales"
+author: "Constanza González"
+date: "09-10-2021"
+output: html_document
+---
+
+## Pregunta 1:
+¿?
