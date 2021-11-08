@@ -10,3 +10,6 @@ En Chile, la tasa de mortalidad materna ha ido disminuyendo con el paso de los a
 Si bien los datos no están del todo actualizados nos permitirán responder a varias preguntas que nos servirán para comprender más adelante el porqué de los porcentajes tan altos en algunas causas, si es que existe alguna coincidencia entre ellas, entre otras.
 
 La idea es intentar comprender a qué se podría deber el aumento o disminución de la muerte materna, si se nos está dando la educación sexual necesaria para evitar fallecer por alguna de las causas ya nombradas. Para esto, primero se mostrará la base de datos, dando un pequeño contexto desde donde la obtuvimos y se explicará sobre cada una de las variables. Luego se utilizarán gráficos con la base de datos para poder analizarla y responder las preguntas para comprender mejor los resultados obtenidos. Para finalizar, se responderá a la pregunta principal y, al mismo tiempo, se dará información para que el lector pueda tenga precaución y así pueda disminuir las posibilidades de obtener una muerte en el embarazo o parto. 
+
+
+En el primer gráfico, correspondiente a las Causas de Mortalidad Materna en el año 2012,  podemos que 
