@@ -1,0 +1,37 @@
+---
+title: "Gráfico"
+author: "Constanza González"
+date: "08-11-2021"
+output: html_document
+---
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+ruta = file.choose()
+datos_2011 = rio::import(ruta) #base 2011
+
+library(tidyverse)
+```
+
+Primero que todo, para saber qué tanto van variando las causas y qué tanto aumentan con el paso del tiempo, realizaremos un gráfico para cada año y, finalmente, uno con todos los años comparándolos entre sí para comenzar a observar si es que existe alguna razón por la que ciertas causas siempre tengan una cantidad alta de defunciones. Además, buscamos responder una pregunta que nos servirá en un futuro "¿Cuáles fueron las causas con mayor tasa de mortalidad en los años estudiados?"
+
+```{r}
+ggplot(datos_2011) +
+  aes(x = Causas, weight = Defunciones) +
+  geom_bar(fill = "#C77979") +
+  labs(
+    x = "Causas",
+    y = "Cantidad de Defunciones",
+    title = "Causas de Mortalidad Materna",
+    subtitle = "Chile 2011"
+  ) +
+  coord_flip() +
+  theme_light()
+```
+
+
+
+Es claro ver que en el año 2011 la causa con mayor número de defunsiones es "Edema, proteinuria y trastornos hipertensivos", seguida por "Muertes obstétricas indirectas" que no se diferencian por mucho más. Además, podemos ver que en ese año no existieron muertes o, no existe la información, por "Sepsis puerperal y otras infecciones" ni "Muertes obstétricas de causa no específica". Ahora compararemos con los otros años para ver si es que existe alguna relación o si "Edema, proteinuria y trastornos hipertensivos" sigue manteniéndose como la causa con mayor cantidad de defunsiones.
+
+
+
+Ahora observamos el gráfico 2 y notamos que esta vez "Muertes obstétricas indirectas" es la que esta vez mantiene un mayor número de funciones, seguida por "Cualquier causa obstétrica que ocurre después de 42 días pero antes de un año del parto", siendo "Complicaciones relacionadas con el puerperio" la que esta vez está con 0 defunciones o que no tenemos información aún.
