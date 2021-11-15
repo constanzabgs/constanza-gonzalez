@@ -1,0 +1,25 @@
+---
+title: "Primer avance informe"
+author: "Constanza González"
+date: "14-11-2021"
+output: html_document
+---
+
+En Chile, desde el año 1965 la tasa de mortalidad materna ha ido disminuyendo considerablemente, por ejemplo, en esos años se presentaba una mortalidad materna de 299/100.000 nacidos vivos, siendo ésta una de las más altas de América. En esos años, el aborto y sus complicaciones eran una de las causas con mayor número de muertes maternas, abarcando casi un tercio del total de muertes.
+
+En la actualidad, Chile es uno de los países con mejores condiciones de salud materno-infatil del mundo. Sin embargo, la tasa de mortalidad materna sigue teniendo un número alto de muertes, alcanzando aproximadamente 8 defunciones cada 1000 nacidos vivos. En todo el mundo, la muerte de la mujer durante el embarazo o parto sigue siendo un problema grave de salud pública. Muchos autores han estado investigando porqué, a nivel mundial, seguimos manteniendo una tasa relativamente alta. 
+
+La idea de este informe es informar sobre los porcentajes de mortalidad materna en Chile e intentar comprender a qué se podría deber el aumento o disminución de la muerte materna, si se nos está dando la educación sexual necesaria para evitar fallecer por alguna de las causas ya nombradas. Si bien los datos no están del todo actualizados nos permitirán responder a varias preguntas que nos servirán para comprender más adelante el porqué de los porcentajes tan altos en algunas causas, si es que existe alguna coincidencia entre ellas, entre otras.
+
+Para poder lograr lo nombrado en el párrafo anterior, primero se mostrará la base de datos, dando un pequeño contexto desde donde la obtuvimos. Se utilizarán gráficos con cada una de las bases de datos para poder analizarlas y responder algunas preguntas para comprender mejor los resultados obtenidos. Para finalizar, se buscará dar información para que el lector pueda tener precaución y así pueda disminuir las posibilidades de obtener una muerte en el embarazo o parto. 
+
+Las bases de datos que se utilizarán incluyen los datos de las defunciones maternas ocurridas en Chile desde el año 2011 hasta el 2014 con sus respectivas causas y fueron obtenidas desde la página oficial del MINSAL (https://deis.minsal.cl/#estadisticas). 
+Si observamos alguna de las bases de datos, podemos ver que se nombran todas las causas por las que se ha obtenido alguna muerte materna, historicamente hablando. Podemos observar que se cuantifican las causas de defunción por edad, pero s
+
+
+
+
+
+
+
+En el primer gráfico, correspondiente a las Causas de Mortalidad Materna en el año 2012,  podemos que 
