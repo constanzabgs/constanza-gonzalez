@@ -20,11 +20,14 @@ Primero que todo, para saber qué tanto van variando las causas y qué tanto aum
 
 Comenzaremos observando el gráfico del año 2011, para ello se realiza un código bastante simple en el que, con ayuda del paquete "Tidyverse", obtenemos un gráfico de barras, ordenado de mayor a menor cantidad de defunciones, con cada una de las causas y la respectiva cantidad de defunciones según .
 
-```{r}
+```{r echo=FALSE, message=FALSE, warning=FALSE}
 ruta = file.choose()
 datos_2011 = rio::import(ruta) #base 2011
 
 library(tidyverse)
+```
+
+```{r, warning=FALSE}
 datos_2011 %>% 
   ggplot()+
   aes(x=reorder(Causas, Defunciones), weight = Defunciones) +
@@ -40,11 +43,13 @@ datos_2011 %>%
   theme_light()+
   theme(text = element_text(size=8))
 ```
+
+
 Es claro ver que en el año 2011 la causa con mayor número de defunciones es "Edema, proteinuria y trastornos hipertensivos", seguida por "Muertes obstétricas indirectas" que no se diferencian por mucho más. Podemos observar también que, en el 2011, no hay registro de muertes por "Sepsis puerperal y otras infecciones" ni "Muertes obstétricas de causa no específica". 
 
 Buscamos comparar con los otros años para ver si es que existe alguna relación o si "Edema, proteinuria y trastornos hipertensivos" sigue manteniéndose como la causa con mayor cantidad de defunsiones, por lo que ahora observaremos el gráfico 2.
 
-```{r}
+```{r, warning=FALSE}
 ruta2 = file.choose()
 datos_2012 = rio::import(ruta2) #base 2012
 
@@ -64,10 +69,15 @@ datos_2012 %>%
   theme(text = element_text(size=8))
 
 ```
-Aquí podemos ver que esta vez "Muertes obstétricas indirectas" es la que esta vez mantiene un mayor número de defunciones, seguida por "Cualquier causa obstétrica que ocurre después de 42 días pero antes de un año del parto", siendo "Complicaciones relacionadas con el puerperio" la única causa de Mortalidad Materna que en este año no presenta registros de muertes. 
+
+
+
+Podemos ver que esta vez "Muertes obstétricas indirectas" es la que esta vez mantiene un mayor número de defunciones, seguida por "Cualquier causa obstétrica que ocurre después de 42 días pero antes de un año del parto", siendo "Complicaciones relacionadas con el puerperio" la única causa de Mortalidad Materna que en este año no presenta registros de muertes. 
 
 Continuamos ahora con el gráfico del año 2013.
-```{r}
+
+
+```{r, warning=FALSE}
 ruta3 = file.choose()
 datos_2013 = rio::import(ruta3) #base 2013
 
@@ -85,11 +95,13 @@ datos_2013 %>%
   theme_light()+
   theme(text = element_text(size=8))
 ```
+
+
 En el 2013 "Muertes obstétricas indirectas" y "Cualquier causa obstétrica que ocurre después de 42 días, pero antes de un año de parto" también se mantienen encabezando la lista, claramente con valores distintos, pero continuan liderando, más adelante intentaremos averiguar si es que existe alguna otra coincidencia en el resto de los años o si existe alguna razón por la que se mantienen éstas en los primeros lugares de la lista. También observamos que "Complicaciones relacionadas con el puerperio" es la causa que en este año se mantiene sin registros de muerte materna.
 
 Observaremos ahora un gráfico sobre los datos que tenemos sobre las defunciones maternas del año 2014, último año del que se mantiene registro. 
 
-```{r}
+```{r, warning=FALSE}
 ruta4 = file.choose()
 datos_2014 = rio::import(ruta4) #base 2014
 
@@ -107,6 +119,9 @@ datos_2014 %>%
   theme_light()+
   theme(text = element_text(size=8))
 ```
+
+
+
 Finalmente, en el año 2014 podemos observar que "Cualquier causa obstétrica que ocurre después de 42 días, pero antes de un año del parto" es la causa que mayor cantidad de defunciones presenta, seguida por "Muertes obstétricas indirectas", que se ha mantenido en los primeros lugares en casi todos los años. Además, podemos ver que "Muertes obstétricas de causa no específica" no presenta datos de muertes en este año en específico. 
 
 Para observar de mejor forma el aumento o disminución de algunas causas de Mortalidad Materna con el paso de los años, realizaremos un gráfico de barras en el que podamos comparar y observar de forma clara el cambio. 
