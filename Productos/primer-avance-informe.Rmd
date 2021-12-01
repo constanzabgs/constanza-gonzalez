@@ -18,7 +18,7 @@ Si observamos alguna de las bases de datos, podemos ver que se nombran todas las
 
 Primero que todo, para saber qué tanto van variando las causas y qué tanto aumenta la tasa de Mortalidad Materna con el paso del tiempo, realizaremos un gráfico para cada año y, finalmente, uno con todos los años comparándolos entre sí para comenzar a observar si es que existe alguna razón por la que ciertas causas siempre tengan una cantidad alta de defunciones. Además, buscamos responder una pregunta que nos servirá en un futuro "¿Cuáles fueron las causas con mayor tasa de mortalidad en los años estudiados?"
 
-Comenzaremos observando el gráfico del año 2011, para ello se realiza un código bastante simple en el que, con ayuda del paquete "Tidyverse", obtenemos un gráfico de barras, ordenado de mayor a menor cantidad de defunciones, con cada una de las causas y la respectiva cantidad de defunciones según .
+Comenzaremos observando el gráfico del año 2011, para ello se realiza un código bastante simple en el que, con ayuda del paquete "Tidyverse", obtenemos un gráfico de barras, ordenado de mayor a menor cantidad de defunciones, con cada una de las causas y la respectiva cantidad de defunciones según.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 ruta = file.choose()
@@ -27,7 +27,7 @@ datos_2011 = rio::import(ruta) #base 2011
 library(tidyverse)
 ```
 
-```{r, warning=FALSE}
+```{r, warning=FALSE, echo=FALSE}
 datos_2011 %>% 
   ggplot()+
   aes(x=reorder(Causas, Defunciones), weight = Defunciones) +
@@ -49,7 +49,7 @@ Es claro ver que en el año 2011 la causa con mayor número de defunciones es "E
 
 Buscamos comparar con los otros años para ver si es que existe alguna relación o si "Edema, proteinuria y trastornos hipertensivos" sigue manteniéndose como la causa con mayor cantidad de defunsiones, por lo que ahora observaremos el gráfico 2.
 
-```{r, warning=FALSE}
+```{r, warning=FALSE, echo=FALSE}
 ruta2 = file.choose()
 datos_2012 = rio::import(ruta2) #base 2012
 
@@ -77,7 +77,7 @@ Podemos ver que esta vez "Muertes obstétricas indirectas" es la que esta vez ma
 Continuamos ahora con el gráfico del año 2013.
 
 
-```{r, warning=FALSE}
+```{r, warning=FALSE, echo=FALSE}
 ruta3 = file.choose()
 datos_2013 = rio::import(ruta3) #base 2013
 
@@ -101,7 +101,7 @@ En el 2013 "Muertes obstétricas indirectas" y "Cualquier causa obstétrica que 
 
 Observaremos ahora un gráfico sobre los datos que tenemos sobre las defunciones maternas del año 2014, último año del que se mantiene registro. 
 
-```{r, warning=FALSE}
+```{r, warning=FALSE, echo=FALSE}
 ruta4 = file.choose()
 datos_2014 = rio::import(ruta4) #base 2014
 
@@ -128,3 +128,6 @@ Para observar de mejor forma el aumento o disminución de algunas causas de Mort
 
 (aquí debe ir el código y el gráfico correspondiente)
 Con el paso de los años, podemos ver que las defunciones por aborto van variando bastante y no mantienen ninguna relación de linealidad aparente. 
+
+
+
