@@ -1,0 +1,277 @@
+---
+title: "Informe"
+author: "Constanza González"
+date: "26-11-2021"
+output: rmdformats::material
+---
+
+# Mortalidad Materna en Chile
+
+## I. Introducción
+
+En Chile, desde el año 1965 la tasa de mortalidad materna ha ido disminuyendo considerablemente, por ejemplo, en esos años se presentaba una tasa de 299 casos cada 100.000 nacidos vivos, siendo ésta una de las más altas de América. En esa época, el aborto y sus complicaciones fueron una de las causas con mayor número de defunciones, abarcando casi un tercio del total.
+
+En la actualidad, la muerte de la mujer durante el embarazo o parto se mantiene como un problema grave de salud pública. Si bien Chile es uno de los países con mejores condiciones de salud materno-infantil del mundo, la tasa de mortalidad materna sigue siendo alta, alcanzando aproximadamente 8 defunciones cada 1000 nacidos vivos.
+
+Buscamos informar sobre los porcentajes de mortalidad materna en Chile, analizando algunos datos de disposición pública que entrega el MINSAL y observándolos gráficamente, logrando así poder diferenciar los cambios ocurridos en los distintos años.
+
+Si bien los datos no están del todo actualizados, nos permiten aclarar varias preguntas que nos ayudarán a comprender, más adelante, el porqué de los porcentajes tan altos en algunas causas, si es que existe alguna coincidencia entre ellas, entre otras.
+
+Para poder lograr lo nombrado en el párrafo anterior, primero visualizaremos la base de datos, dando un pequeño contexto desde donde la obtuvimos. Se utilizarán gráficos para poder analizarlas y responder algunas preguntas para comprender los resultados obtenidos. Para finalizar, se buscará dar información con el fin de que el lector estar informado y tomar las precauciones necesarias a fin de disminuir las posibilidades de muerte en el embarazo o parto.
+
+## II. Antecedentes y Descripción de los datos
+
+Las bases de datos que se utilizarán incluyen los datos de las defunciones maternas ocurridas en Chile desde el año 2011 hasta el 2014 con sus respectivas causas. Los datos fueron obtenidos desde la página oficial del MINSAL (<https://deis.minsal.cl/#estadisticas>).
+
+Si observamos las bases de datos, podemos ver que se nombran todas las causas por las que se ha obtenido alguna muerte materna, históricamente hablando. Podemos observar que se cuantifican cada una de las causas de defunción, añadiendo a su lado la Razón de Mortalidad Materna cada cien mil nacidos vivos, la base incluye también información de cuántas defunciones existen en rangos etarios en los que las mujeres son fértiles.
+
+Son dos las variables cuantitativas y, para ello, se dará una breve descripción de las dos nombradas en la base de datos.
+
+| Variables Cuantitativas: |                                                                    |
+|:------------------------:|--------------------------------------------------------------------|
+| Cantidad de Defunciones  | Total de defunciones maternas por año                              |
+|           RMM            | Razón de Mortalidad Materna por cien mil nacidos vivos corregidos. |
+
+En la base de datos se agruparon algunas de las causas por la similitud que tienen entre ellas, por ejemplo, edema, proteinuria y trastornos hipertensivos se agruparon en una misma variable, ya que todas ellas son causadas por exceso de líquido. Se realizará un pequeño cuadro resumen en el que vamos a explicar en pocas palabras cada una de las causas para comprenderlas mejor.
+
++------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+| Variables Cualitativas                                                                   |                                                                                                                                             |
++==========================================================================================+=============================================================================================================================================+
+| Aborto                                                                                   | Pérdida espontánea del embarazo antes de la vigésima semana de gestación, puede causar dolor físico y emocional.                            |
++------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+| Edema                                                                                    | Hinchazón causada por el exceso de líquido en los tejidos.                                                                                  |
++------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+| Proteinuria                                                                              | Presencia de proteínas en la orina, generalmente albúmina.                                                                                  |
++------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+| Trastornos hipertensivos                                                                 | Alteraciones fisiopatológicas, que generan un aumento en la presión arterial.                                                               |
++------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+| Hemorragia en el embarazo, parto y puerperio                                             | Universalmente se define como la pérdida hemática superior a 500 ml tras un parto vaginal o 1.000 ml tras una cesárea.                      |
++------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+| Complicaciones predominantes                                                             | Conjunto de otras variables con mayor importancia.                                                                                          |
++------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+| Sepsis puerperal y otras infecciones                                                     | Infección del tracto genital que ocurre entre el período transcurrido entre la rotura de membranas o el nacimiento y los 42 días postparto. |
++------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+| Complicaciones relacionadas con el puerperio                                             | Conjunto de variables que pueden ir desde el dolor a la infección.                                                                          |
++------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+| Muertes obstétricas de causa no específica                                               | Deceso de la madre por causas desconocidas.                                                                                                 |
++------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+| Cualquier causa obstétrica que ocurre después de 42 días pero antes de un año del parto. | Conjunto de variables que pueden ir desde el dolor a la infección después de 42 días pero antes de un año del parto.                        |
++------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+| Muertes obstétricas indirectas                                                           | Son las que resultan de una enfermedad existente desde antes del embarazo o de una enfermedad que evoluciona durante el mismo.              |
++------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+
+Se realizó una pequeña modificación en la base de datos, reduciendo las columnas que no son aplicables al tema y así poder obtener una tabla con las variables que buscamos graficar, es decir, las causas y la cantidad de defunciones.
+
+## III. Análisis
+
+Primero que todo, para saber qué tanto van variando las causas y qué tanto aumenta la tasa de Mortalidad Materna con el paso del tiempo, realizaremos un gráfico para cada año y, finalmente, uno con todos los años comparándolos entre sí para así observar si es que existe alguna similitud entre los valores de las causas con respecto a los años. Además, buscamos saber cuáles fueron las causas con mayor tasa de mortalidad en los años estudiados, si es que la defunción debido al aborto ha aumentado o disminuido con el paso de los años, entre otras.
+
+#### Año 2011
+
+Comenzaremos observando el gráfico del año 2011, para ello se realiza un código bastante simple en el que, con ayuda del paquete "Tidyverse", obtenemos un gráfico de barras, ordenado de mayor a menor la cantidad de defunciones, con cada una de las causas y la respectiva cantidad de muertes.
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+ruta = file.choose()
+datos_2011 = rio::import(ruta) #base 2011
+
+library(tidyverse)
+
+datos_2011 %>% 
+  ggplot()+
+  aes(x=reorder(Causas, Defunciones), y = Defunciones, label=Defunciones) +
+  geom_bar(fill = "#C77979", stat="identity") +
+  scale_y_continuous(limits = c(0, 15), breaks = seq(0, 15, by =1))+
+  labs(
+    x = "",
+    y = "Cantidad de Defunciones",
+    title = "Causas de Mortalidad Materna",
+    subtitle = "Chile 2011"
+  ) + geom_text(hjust= 0, nudge_y =0.5)+
+  coord_flip() +
+  theme_light()+
+  theme(text = element_text(size=8))
+
+```
+
+En el gráfico anterior, podemos ver que en el año 2011 la causa con mayor número de defunciones es "Edema, proteinuria y trastornos hipertensivos", seguida por "Muertes obstétricas indirectas". Además, podemos observar que no existen registros de muertes por "Sepsis puerperal y otras infecciones" ni "Muertes obstétricas de causa no específica".
+
+#### Año 2012
+
+Continuaremos creando un gráfico del año 2012 para para ver si es que existe alguna relación con el año anterior o si "Edema, proteinuria y trastornos hipertensivos" sigue manteniéndose como la causa con mayor cantidad de defunciones.
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+ruta2 = file.choose()
+datos_2012 = rio::import(ruta2) #base 2012
+
+datos_2012 %>% 
+  ggplot()+
+  aes(x=reorder(Causas, Defunciones), y = Defunciones, label=Defunciones) +
+  geom_bar(fill = "#C77979", stat="identity") +
+  scale_y_continuous(limits = c(0, 15), breaks = seq(0, 15, by =1))+
+  labs(
+    x = "",
+    y = "Cantidad de Defunciones",
+    title = "Causas de Mortalidad Materna",
+    subtitle = "Chile 2012"
+  ) + geom_text(hjust= 0, nudge_y =0.5)+
+  coord_flip() +
+  theme_light()+
+  theme(text = element_text(size=8))
+```
+
+En este gráfico, observamos que "Muertes obstétricas indirectas" es la causa que se mantiene con un mayor número de defunciones, seguida por "Cualquier causa obstétrica que ocurre después de 42 días, pero antes de un año del parto", siendo "Complicaciones relacionadas con el puerperio" la única causa de Mortalidad Materna que en este año no presenta registros de muertes.
+
+#### Año 2013
+
+Continuando con el año 2013, tenemos:
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+
+ruta3 = file.choose()
+datos_2013 = rio::import(ruta3) #base 2013
+
+
+datos_2013 %>% 
+  ggplot()+
+  aes(x=reorder(Causas, Defunciones), y = Defunciones, label=Defunciones) +
+  geom_bar(fill = "#C77979", stat="identity") +
+  scale_y_continuous(limits = c(0, 15), breaks = seq(0, 15, by =1))+
+  labs(
+    x="",
+    y = "Cantidad de Defunciones",
+    title = "Causas de Mortalidad Materna",
+    subtitle = "Chile 2013"
+  ) + geom_text(hjust= 0, nudge_y =0.5)+
+  coord_flip() +
+  theme_light()+
+  theme(text = element_text(size=8))
+
+```
+
+En el gráfico del 2013, "Muertes obstétricas indirectas" y "Cualquier causa obstétrica que ocurre después de 42 días, pero antes de un año de parto" también se mantienen como las causas con mayor número de cantidad de defunciones, intentaremos averiguar si es que existe alguna otra coincidencia en el resto de los años o si existe alguna razón por la que se mantienen estas causas en los primeros lugares de la lista.
+
+También observamos que "Complicaciones relacionadas con el puerperio" es la causa que en este año se mantiene sin registros de muerte materna.
+
+#### Año 2014
+
+Observaremos ahora un gráfico sobre los datos que tenemos sobre las defunciones maternas del año 2014, último año del que se mantiene registro.
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+ruta4 = file.choose()
+datos_2014 = rio::import(ruta4) #base 2014
+
+datos_2014 %>% 
+  ggplot()+
+  aes(x=reorder(Causas, Defunciones), y = Defunciones, label=Defunciones) +
+  geom_bar(fill = "#C77979", stat="identity") +
+  scale_y_continuous(limits = c(0, 15), breaks = seq(0, 15, by =1))+
+  labs(
+    x="",
+    y = "Cantidad de Defunciones",
+    title = "Causas de Mortalidad Materna",
+    subtitle = "Chile 2014"
+  ) + geom_text(hjust= 0, nudge_y =0.5)+
+  coord_flip() +
+  theme_light()+
+  theme(text = element_text(size=8))
+```
+
+Finalmente, con el gráfico del año 2014 podemos observar que "Cualquier causa obstétrica que ocurre después de 42 días, pero antes de un año del parto" es la causa que mayor cantidad de defunciones presenta, seguida por "Muertes obstétricas indirectas", que se ha mantenido en los primeros lugares en casi todos los años. Además, podemos ver que "Muertes obstétricas de causa no específica" no presenta datos de muertes en este año en específico.
+
+#### Análisis de 2011-2014
+
+Podemos ver que en todos los años hay tres causas que se mantienen liderando con la mayor cantidad de defunciones, por lo que ahora nos gustaría observarlas todas juntas. En este caso, realizamos el siguiente cambio en los nombres de las Causas para que sea más fácil de observar gráficamente.
+
++-------------+------------------------------------------------------------------------------------------+
+| Abreviación |                                                                                          |
++=============+==========================================================================================+
+| EPT         | Edema, proteinuria y trastornos hipertensivos.                                           |
++-------------+------------------------------------------------------------------------------------------+
+| CCO         | Cualquier causa obstétrica que ocurre después de 42 días pero antes de un año del parto. |
++-------------+------------------------------------------------------------------------------------------+
+| MOI         | Muertes obstétricas indirectas                                                           |
++-------------+------------------------------------------------------------------------------------------+
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+EPT_2011 = 14
+EPT_2012 = 10 
+EPT_2013 = 11
+EPT_2014 = 5
+
+CCO_2011 = 6
+CCO_2012 = 12 
+CCO_2013 = 15
+CCO_2014 = 22
+
+MOI_2011 = 12
+MOI_2012 = 16 
+MOI_2013 = 16
+MOI_2014 = 14
+
+Var_EPT = c(EPT_2011,EPT_2012,EPT_2013,EPT_2014)
+Var_CCO = c(CCO_2011,CCO_2012,CCO_2013,CCO_2014)
+Var_MOI = c(MOI_2011,MOI_2012,MOI_2013,MOI_2014)
+
+EPT = c("EPT","EPT","EPT","EPT")
+CCO = c("CCO","CCO","CCO","CCO")
+MOI = c("MOI","MOI","MOI","MOI")
+
+Var_EPT = cbind(EPT,Var_EPT,c("2011","2012","2013","2014"))
+Var_CCO = cbind(CCO,Var_CCO,c("2011","2012","2013","2014"))
+Var_MOI = cbind(MOI,Var_MOI,c("2011","2012","2013","2014"))
+
+Var = as.data.frame(rbind(Var_EPT,Var_CCO,Var_MOI))
+
+Var %>% 
+  ggplot() +
+  aes(x = EPT, y = as.numeric(reorder(Var_EPT, Var_EPT, function(x)+length(x))), fill=V3)+
+  geom_bar(stat = "identity")+
+  labs(title = "Causas con mayor cantidad de defunciones",
+       y = "",
+       x = "")
+```
+
+Podemos ver que con "Cualquier causa obstétrica que ocurre después de 42 días, pero antes de un año del parto", el año 2012 fue el año en el que se presentó una mayor cantidad de defunciones. Por otro lado, para "Edema, proteinuria y trastornos hipertensivos" el año 2011 fue el que obtuvo una mayor cantidad de defunciones. En el caso de "Muertes obstétricas indirectas" podemos ver que los años 2012 y 2013 presentan la misma cantidad de defunciones.
+
+Analizando todos los gráficos, podemos observar que existe un claro aumento en las muertes obstétricas indirectas, lo que podríamos relacionar directamente con la mínima o casi nula educación sexual existente en Chile.
+
+Existe muy poca información sobre el cuidado que las madres deben tener a la hora de un embarazo, por lo que muchas veces se arriesgan a una muerte prematura o a poner en peligro al feto.
+
+Además, la ausencia de educación sexual trae consigo muchísimos problemas, varios de ellos para adolescentes en nuestro país. La psicóloga y directora ejecutiva de APROFA (Asociación Chilena de Protección de la Familia), Débora Solis, afirma que los adolescentes inician su vida sexual aproximadamente a los 15 años. La falta de una educación sexual integral conlleva a que mujeres de poca edad se embaracen, lo que hace que todo el proceso sea mucho más riesgoso.
+
+El estudio de Débora asegura que, de cada 10 jóvenes que tuvo relaciones sexuales el mes anterior, solo 2 de ellos utilizaron condón, lo que significa que 8 de ellos están en situación de riesgo de embarazo y/o contraer alguna enfermedad de transmisión sexual.
+
+## IV. Conclusión
+
+Si bien, la cantidad de defunciones por mortalidad materna no es tan alta como la de otras estadísticas; accidentes de tráfico, drogas, suicidio, entre otras, ésta es una de las pocas causas que pueden ser evitables en su mayoría, ya que, con un adecuado acceso a la información sobre educación sexual, las mujeres podrían decidir a consciencia antes de enfrentarse a alguna enfermedad o problema que podría ser mortal.
+
+Las noticias no son muy alentadoras para nuestro país, debido a que no se le ha dado la real importancia a la educación sexual ni se ha implementado en colegios.
+
+El principal error que se ha cometido es entregar información, que está más ligada a la anatomía, a adolescentes desde 15 años en adelante y no incluir la educación sexual en el programa de pre-básica para que así el tema deje de ser tabú, obteniendo como resultado a niños desde los 5 años informados sobre qué hacer y qué no hacer en un futuro para prevenir muertes en el embarazo, enfermedades de transmisión sexual, entre otros.
+
+A partir de los resultados obtenidos en los gráficos, y, teniendo en cuenta que, no se está dando la educación sexual adecuada en el país, para evitar obtener una alta tasa de mortalidad materna en los años futuros, se hace un llamado a estar constantemente informades sobre los cuidados que hay que tener antes y durante un embarazo.
+
+## V. Referencias
+
+1.  Jobet, M. (2018, 29 noviembre). *Sexualidad y adolescentes: Falta educación sexual*. La Tercera. <https://www.latercera.com/paula/sexualidad-adolescentes-falta-educacion-sexual/>
+2.  *EPIDEMIOLOGÍA DE LA MUJER EN CHILE*. (2019). Síntesis, Medicina UCHILE. <https://sintesis.med.uchile.cl/index.php/respecialidades/r-ginecologia-y-obstetricia/135-revision/r-ginecologia-y-obstetricia/1650-epidemiologia-de-la-mujer-en-chile>
+
+## VI. Bibliografía
+
+1.  Paquete "tidyverse"
+
+    Wickham et al., (2019). *Welcome to the tidyverse*. Journal of Open Source Software, 4(43), 1686,
+
+    <https://doi.org/10.21105/joss.01686>
+
+2.  Paquete "scales"
+
+    Hadley Wickham and Dana Seidel (2020). scales: *Scale Functions for Visualization*. R package version 1.1.1.
+
+    <https://CRAN.R-project.org/package=scales>
+
+3.  Paquete "ggthemes"
+
+    Jeffrey B. Arnold (2021). *ggthemes: Extra Themes, Scales and Geoms for 'ggplot2'*. R package version 4.2.4.
+
+    <https://CRAN.R-project.org/package=ggthemes>
