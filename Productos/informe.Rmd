@@ -70,7 +70,7 @@ Primero que todo, para saber qué tanto van variando las causas y qué tanto aum
 
 Comenzaremos observando el gráfico del año 2011, para ello se realiza un código bastante simple en el que, con ayuda del paquete "Tidyverse", obtenemos un gráfico de barras, ordenado de mayor a menor la cantidad de defunciones, con cada una de las causas y la respectiva cantidad de muertes.
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
+```{r echo=FALSE, message=FALSE, warning=FALSE}
 ruta = file.choose()
 datos_2011 = rio::import(ruta) #base 2011
 
