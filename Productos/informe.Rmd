@@ -1,7 +1,7 @@
 ---
 title: "Informe"
 author: "Constanza González"
-date: "26-11-2021"
+date: "02-12-2021"
 output: rmdformats::material
 ---
 
@@ -70,28 +70,7 @@ Primero que todo, para saber qué tanto van variando las causas y qué tanto aum
 
 Comenzaremos observando el gráfico del año 2011, para ello se realiza un código bastante simple en el que, con ayuda del paquete "Tidyverse", obtenemos un gráfico de barras, ordenado de mayor a menor la cantidad de defunciones, con cada una de las causas y la respectiva cantidad de muertes.
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
-ruta = file.choose()
-datos_2011 = rio::import(ruta) #base 2011
-
-library(tidyverse)
-
-datos_2011 %>% 
-  ggplot()+
-  aes(x=reorder(Causas, Defunciones), y = Defunciones, label=Defunciones) +
-  geom_bar(fill = "#C77979", stat="identity") +
-  scale_y_continuous(limits = c(0, 15), breaks = seq(0, 15, by =1))+
-  labs(
-    x = "",
-    y = "Cantidad de Defunciones",
-    title = "Causas de Mortalidad Materna",
-    subtitle = "Chile 2011"
-  ) + geom_text(hjust= 0, nudge_y =0.5)+
-  coord_flip() +
-  theme_light()+
-  theme(text = element_text(size=8))
-
-```
+![](images/grafico-2011){width="712"}
 
 En el gráfico anterior, podemos ver que en el año 2011 la causa con mayor número de defunciones es "Edema, proteinuria y trastornos hipertensivos", seguida por "Muertes obstétricas indirectas". Además, podemos observar que no existen registros de muertes por "Sepsis puerperal y otras infecciones" ni "Muertes obstétricas de causa no específica".
 
@@ -99,25 +78,7 @@ En el gráfico anterior, podemos ver que en el año 2011 la causa con mayor núm
 
 Continuaremos creando un gráfico del año 2012 para para ver si es que existe alguna relación con el año anterior o si "Edema, proteinuria y trastornos hipertensivos" sigue manteniéndose como la causa con mayor cantidad de defunciones.
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-ruta2 = file.choose()
-datos_2012 = rio::import(ruta2) #base 2012
-
-datos_2012 %>% 
-  ggplot()+
-  aes(x=reorder(Causas, Defunciones), y = Defunciones, label=Defunciones) +
-  geom_bar(fill = "#C77979", stat="identity") +
-  scale_y_continuous(limits = c(0, 15), breaks = seq(0, 15, by =1))+
-  labs(
-    x = "",
-    y = "Cantidad de Defunciones",
-    title = "Causas de Mortalidad Materna",
-    subtitle = "Chile 2012"
-  ) + geom_text(hjust= 0, nudge_y =0.5)+
-  coord_flip() +
-  theme_light()+
-  theme(text = element_text(size=8))
-```
+![](images/grafico-2012){width="721"}
 
 En este gráfico, observamos que "Muertes obstétricas indirectas" es la causa que se mantiene con un mayor número de defunciones, seguida por "Cualquier causa obstétrica que ocurre después de 42 días, pero antes de un año del parto", siendo "Complicaciones relacionadas con el puerperio" la única causa de Mortalidad Materna que en este año no presenta registros de muertes.
 
@@ -125,28 +86,7 @@ En este gráfico, observamos que "Muertes obstétricas indirectas" es la causa q
 
 Continuando con el año 2013, tenemos:
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-
-ruta3 = file.choose()
-datos_2013 = rio::import(ruta3) #base 2013
-
-
-datos_2013 %>% 
-  ggplot()+
-  aes(x=reorder(Causas, Defunciones), y = Defunciones, label=Defunciones) +
-  geom_bar(fill = "#C77979", stat="identity") +
-  scale_y_continuous(limits = c(0, 15), breaks = seq(0, 15, by =1))+
-  labs(
-    x="",
-    y = "Cantidad de Defunciones",
-    title = "Causas de Mortalidad Materna",
-    subtitle = "Chile 2013"
-  ) + geom_text(hjust= 0, nudge_y =0.5)+
-  coord_flip() +
-  theme_light()+
-  theme(text = element_text(size=8))
-
-```
+![](images/grafico-2013)
 
 En el gráfico del 2013, "Muertes obstétricas indirectas" y "Cualquier causa obstétrica que ocurre después de 42 días, pero antes de un año de parto" también se mantienen como las causas con mayor número de cantidad de defunciones, intentaremos averiguar si es que existe alguna otra coincidencia en el resto de los años o si existe alguna razón por la que se mantienen estas causas en los primeros lugares de la lista.
 
@@ -156,25 +96,7 @@ También observamos que "Complicaciones relacionadas con el puerperio" es la cau
 
 Observaremos ahora un gráfico sobre los datos que tenemos sobre las defunciones maternas del año 2014, último año del que se mantiene registro.
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-ruta4 = file.choose()
-datos_2014 = rio::import(ruta4) #base 2014
-
-datos_2014 %>% 
-  ggplot()+
-  aes(x=reorder(Causas, Defunciones), y = Defunciones, label=Defunciones) +
-  geom_bar(fill = "#C77979", stat="identity") +
-  scale_y_continuous(limits = c(0, 15), breaks = seq(0, 15, by =1))+
-  labs(
-    x="",
-    y = "Cantidad de Defunciones",
-    title = "Causas de Mortalidad Materna",
-    subtitle = "Chile 2014"
-  ) + geom_text(hjust= 0, nudge_y =0.5)+
-  coord_flip() +
-  theme_light()+
-  theme(text = element_text(size=8))
-```
+![](images/grafico-2014)
 
 Finalmente, con el gráfico del año 2014 podemos observar que "Cualquier causa obstétrica que ocurre después de 42 días, pero antes de un año del parto" es la causa que mayor cantidad de defunciones presenta, seguida por "Muertes obstétricas indirectas", que se ha mantenido en los primeros lugares en casi todos los años. Además, podemos ver que "Muertes obstétricas de causa no específica" no presenta datos de muertes en este año en específico.
 
@@ -192,44 +114,7 @@ Podemos ver que en todos los años hay tres causas que se mantienen liderando co
 | MOI         | Muertes obstétricas indirectas                                                           |
 +-------------+------------------------------------------------------------------------------------------+
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-EPT_2011 = 14
-EPT_2012 = 10 
-EPT_2013 = 11
-EPT_2014 = 5
-
-CCO_2011 = 6
-CCO_2012 = 12 
-CCO_2013 = 15
-CCO_2014 = 22
-
-MOI_2011 = 12
-MOI_2012 = 16 
-MOI_2013 = 16
-MOI_2014 = 14
-
-Var_EPT = c(EPT_2011,EPT_2012,EPT_2013,EPT_2014)
-Var_CCO = c(CCO_2011,CCO_2012,CCO_2013,CCO_2014)
-Var_MOI = c(MOI_2011,MOI_2012,MOI_2013,MOI_2014)
-
-EPT = c("EPT","EPT","EPT","EPT")
-CCO = c("CCO","CCO","CCO","CCO")
-MOI = c("MOI","MOI","MOI","MOI")
-
-Var_EPT = cbind(EPT,Var_EPT,c("2011","2012","2013","2014"))
-Var_CCO = cbind(CCO,Var_CCO,c("2011","2012","2013","2014"))
-Var_MOI = cbind(MOI,Var_MOI,c("2011","2012","2013","2014"))
-
-Var = as.data.frame(rbind(Var_EPT,Var_CCO,Var_MOI))
-
-Var %>% 
-  ggplot() +
-  aes(x = EPT, y = as.numeric(reorder(Var_EPT, Var_EPT, function(x)+length(x))), fill=V3)+
-  geom_bar(stat = "identity")+
-  labs(title = "Causas con mayor cantidad de defunciones",
-       y = "",
-       x = "")
-```
+![](images/grafico-total.png){width="547"}
 
 Podemos ver que con "Cualquier causa obstétrica que ocurre después de 42 días, pero antes de un año del parto", el año 2012 fue el año en el que se presentó una mayor cantidad de defunciones. Por otro lado, para "Edema, proteinuria y trastornos hipertensivos" el año 2011 fue el que obtuvo una mayor cantidad de defunciones. En el caso de "Muertes obstétricas indirectas" podemos ver que los años 2012 y 2013 presentan la misma cantidad de defunciones.
 
