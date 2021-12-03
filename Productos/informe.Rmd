@@ -34,31 +34,19 @@ Son dos las variables cuantitativas y, para ello, se dará una breve descripció
 
 En la base de datos se agruparon algunas de las causas por la similitud que tienen entre ellas, por ejemplo, edema, proteinuria y trastornos hipertensivos se agruparon en una misma variable, ya que todas ellas son causadas por exceso de líquido. Se realizará un pequeño cuadro resumen en el que vamos a explicar en pocas palabras cada una de las causas para comprenderlas mejor.
 
-+------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
 | Variables Cualitativas                                                                   |                                                                                                                                             |
-+==========================================================================================+=============================================================================================================================================+
+|------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 | Aborto                                                                                   | Pérdida espontánea del embarazo antes de la vigésima semana de gestación, puede causar dolor físico y emocional.                            |
-+------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
 | Edema                                                                                    | Hinchazón causada por el exceso de líquido en los tejidos.                                                                                  |
-+------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
 | Proteinuria                                                                              | Presencia de proteínas en la orina, generalmente albúmina.                                                                                  |
-+------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
 | Trastornos hipertensivos                                                                 | Alteraciones fisiopatológicas, que generan un aumento en la presión arterial.                                                               |
-+------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
 | Hemorragia en el embarazo, parto y puerperio                                             | Universalmente se define como la pérdida hemática superior a 500 ml tras un parto vaginal o 1.000 ml tras una cesárea.                      |
-+------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
 | Complicaciones predominantes                                                             | Conjunto de otras variables con mayor importancia.                                                                                          |
-+------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
 | Sepsis puerperal y otras infecciones                                                     | Infección del tracto genital que ocurre entre el período transcurrido entre la rotura de membranas o el nacimiento y los 42 días postparto. |
-+------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
 | Complicaciones relacionadas con el puerperio                                             | Conjunto de variables que pueden ir desde el dolor a la infección.                                                                          |
-+------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
 | Muertes obstétricas de causa no específica                                               | Deceso de la madre por causas desconocidas.                                                                                                 |
-+------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
 | Cualquier causa obstétrica que ocurre después de 42 días pero antes de un año del parto. | Conjunto de variables que pueden ir desde el dolor a la infección después de 42 días pero antes de un año del parto.                        |
-+------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
 | Muertes obstétricas indirectas                                                           | Son las que resultan de una enfermedad existente desde antes del embarazo o de una enfermedad que evoluciona durante el mismo.              |
-+------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
 
 Se realizó una pequeña modificación en la base de datos, reduciendo las columnas que no son aplicables al tema y así poder obtener una tabla con las variables que buscamos graficar, es decir, las causas y la cantidad de defunciones.
 
@@ -104,15 +92,11 @@ Finalmente, con el gráfico del año 2014 podemos observar que "Cualquier causa 
 
 Podemos ver que en todos los años hay tres causas que se mantienen liderando con la mayor cantidad de defunciones, por lo que ahora nos gustaría observarlas todas juntas. En este caso, realizamos el siguiente cambio en los nombres de las Causas para que sea más fácil de observar gráficamente.
 
-+-------------+------------------------------------------------------------------------------------------+
 | Abreviación |                                                                                          |
-+=============+==========================================================================================+
+|-------------|------------------------------------------------------------------------------------------|
 | EPT         | Edema, proteinuria y trastornos hipertensivos.                                           |
-+-------------+------------------------------------------------------------------------------------------+
 | CCO         | Cualquier causa obstétrica que ocurre después de 42 días pero antes de un año del parto. |
-+-------------+------------------------------------------------------------------------------------------+
 | MOI         | Muertes obstétricas indirectas                                                           |
-+-------------+------------------------------------------------------------------------------------------+
 
 ![](images/grafico-total.png){width="547"}
 
