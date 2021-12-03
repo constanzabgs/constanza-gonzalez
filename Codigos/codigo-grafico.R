@@ -27,10 +27,10 @@ datos_2012 = rio::import(ruta2) #base 2012
 datos_2012 %>% 
   ggplot()+
   aes(x=reorder(Causas, Defunciones), y = Defunciones, label=Defunciones) +
-  geom_bar(fill = "#C77979", stat="identity") +
-  scale_y_continuous(limits = c(0, 15), breaks = seq(0, 15, by =1))+
+  geom_bar(fill = "turquoise", stat="identity") +
+  scale_y_continuous(limits = c(0, 20), breaks = seq(0, 20, by =1))+
   labs(
-    x = ""
+    x = "",
     y = "Cantidad de Defunciones",
     title = "Causas de Mortalidad Materna",
     subtitle = "Chile 2012"
@@ -45,10 +45,10 @@ datos_2013 = rio::import(ruta3) #base 2013
 datos_2013 %>% 
   ggplot()+
   aes(x=reorder(Causas, Defunciones), y = Defunciones, label=Defunciones) +
-  geom_bar(fill = "#C77979", stat="identity") +
-  scale_y_continuous(limits = c(0, 15), breaks = seq(0, 15, by =1))+
+  geom_bar(fill = "slateblue1", stat="identity") +
+  scale_y_continuous(limits = c(0, 20), breaks = seq(0, 20, by =1))+
   labs(
-    x=""
+    x="",
     y = "Cantidad de Defunciones",
     title = "Causas de Mortalidad Materna",
     subtitle = "Chile 2013"
@@ -63,10 +63,10 @@ datos_2014 = rio::import(ruta4) #base 2014
 datos_2014 %>% 
   ggplot()+
   aes(x=reorder(Causas, Defunciones), y = Defunciones, label=Defunciones) +
-  geom_bar(fill = "#C77979", stat="identity") +
-  scale_y_continuous(limits = c(0, 15), breaks = seq(0, 15, by =1))+
+  geom_bar(fill = "deeppink1", stat="identity") +
+  scale_y_continuous(limits = c(0, 25), breaks = seq(0, 25, by =1))+
   labs(
-    x=""
+    x="",
     y = "Cantidad de Defunciones",
     title = "Causas de Mortalidad Materna",
     subtitle = "Chile 2014"
@@ -112,7 +112,9 @@ Var = as.data.frame(rbind(Var_EPT,Var_CCO,Var_MOI))
 Var %>% 
   ggplot() +
   aes(x = EPT, y = as.numeric(reorder(Var_EPT, Var_EPT, function(x)+length(x))), fill=V3)+
-  geom_bar(stat = "identity")+
+  geom_bar(stat = "identity", color="black")+
+  theme_excel_new() +
+  geom_text(aes(label=format(Var_EPT)), position = position_stack(vjust=0.9))+
   labs(title = "Causas con mayor cantidad de defunciones",
        y = "",
        x = "")
